@@ -1,0 +1,129 @@
+:root {
+	--text: #dbdfac;
+	--bg: #2a1e5c;
+	--btn-bg: #d7f171;
+	--box-bg: #4f3a4b;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 16px;
+}
+
+body {
+	color: var(--text);
+	// background-color: var(--bg);
+	font-family: 'Nerko One', cursive;
+}
+
+.container {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+h1 {
+	font-size: 5rem;
+	margin-bottom: 0;
+	text-transform: uppercase;
+}
+
+h4 {
+	color: var(--text);
+	background-color: var(--bg);
+}
+
+.board-block {
+	display: grid;
+	grid-template-columns: repeat(3,auto);
+	justify-self: center;
+	margin-top: 40px;
+	// box-shadow: inset -1px 1px 7px rgb(0 0 0 / 20%),
+	// inset 1px -1px 7px rgb(0 0 0 / 20%),
+	// 1px 12px 5px rgb(0 0 0 / 40%),
+	// 4px 3px 8px rgb(0 0 0 / 40%),
+	// 5px 10px 10px rgb(0 0 0 / 20%),
+	// -5px 10px 10px rgb(0 0 0 / 40%);
+	overflow: hidden;
+
+	.box {
+		height: 100px;
+		width: 100px;
+		background: var(--box-bg);
+		color: var(--text);
+		border: 1px solid #e75152;
+		// border-bottom: 1px solid #e75152;
+		cursor: pointer;
+		&:first-child, &:nth-child(2), &:nth-child(3) {
+			border-top: 0;
+		}
+		&:last-child, &:nth-child(7), &:nth-child(8) {
+			border-bottom: 0;
+		}
+		&:nth-child(3n+1) {
+			border-left: 0;
+		}
+		&:nth-child(3n+3) {
+			border-right: 0;
+		}
+		&.cross {
+			&:before {
+				content: url('../images/times-solid.svg');
+				width: 60px;
+				height: 20px;
+				display: block;
+				text-align: center;
+				margin: 10px auto;
+				    
+			}
+		}
+		&.tick {
+			&:before {
+				content:url('../images/check-solid.svg');
+				width: 60px;
+				height: 20px;
+				display: block;
+				text-align: center;
+				margin: 10px auto;
+				    
+			}
+		}
+	}
+}
+
+#restart {
+	padding: 10px 20px;
+	background-color: var(--btn-bg);
+	border: none;
+	border-radius: 20px;
+	color: var(--bg);
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.btn-primary {
+	background: #6e1b5e;
+	padding: 0.5rem 2rem;
+	font-size: 1rem;
+	border: 1px solid #6e1b5e;
+	color: #fff;
+	border-radius: 20px;
+	box-shadow: 0px 2px 4px -1px #a73290;
+	transition: all 0.3s ease-in-out;
+	cursor: pointer;
+	outline: transparent;
+	&:hover {
+		background: #a73290;
+		border-color: #a73290;
+	}
+}
